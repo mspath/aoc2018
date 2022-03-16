@@ -8,7 +8,11 @@
 
 ### Day 1 Chronal Calibration
 
-calibrate frequences.
+calibrate frequencies.
+
+### Day 2 Inventory Management System
+
+find the prototype fabric.
 
 ---
 
