@@ -15,6 +15,8 @@ data class Claim(val id: Int, val start: Point, val end: Point) {
         return points
     }
 
+    fun size(): Int = (end.x - start.x + 1) * (end.y - start.y + 1)
+
 }
 
 fun String.toClaim(): Claim? {
@@ -33,6 +35,8 @@ fun main() {
     val claims = parseInput(input)
     val resultBreakfast = breakfast(claims) // 109143
     println(resultBreakfast)
+    val resultLunch = lunch(claims) // 506
+    println(resultLunch)
 }
 
 fun parseInput(input: List<String>): List<Claim> {
@@ -50,4 +54,22 @@ fun breakfast(claims: List<Claim>): Int {
 
     return result
 
+}
+
+fun lunch(claims: List<Claim>): Int {
+
+    // we can reuse the map counting the claimers from breakfast
+    val pointsMap = claims.flatMap { it.getPoints() }
+        .groupingBy { it }
+        .eachCount()
+
+    // if adding up the claimers of all points equals the area of a claim we've found our result
+    claims.forEach { claim ->
+        val claimerOfArea = claim.getPoints().sumOf {
+            pointsMap.getOrDefault(it, 1)
+        }
+        if (claimerOfArea == claim.size()) return(claim.id)
+    }
+
+    return -1
 }
