@@ -14,6 +14,14 @@ calibrate frequencies.
 
 find the prototype fabric.
 
+### Day 3 No Matter How You Slice It
+
+help elves claiming the fabric.
+
+### Day 4 Repose Record
+
+analyze the sleeping pattern of guards
+
 ---
 
 Environment
