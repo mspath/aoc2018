@@ -5,6 +5,7 @@ import java.io.File
 fun main() {
     val input = File("data/day4/input_sorted.txt").readLines()
     breakfast(input) // 50558
+    lunch(input) // 28198
 }
 
 data class Night(val id: Int, val guard: Int, val minutes: IntArray = IntArray(60) { 0 })
@@ -57,3 +58,28 @@ fun breakfast(input: List<String>) {
     }
 }
 
+fun findMostSleptMinute(nights: List<Night>): Pair<Int, Int> {
+    var max = 0
+    var minute = 0
+    (0 until 60).forEach { index ->
+        val sleeps = nights.sumOf { it.minutes[index] }
+        if (sleeps > max) {
+            minute = index
+            max = sleeps
+        }
+    }
+    return Pair(minute, max)
+}
+
+fun lunch(input: List<String>) {
+
+    val nights = parseInput(input)
+    val nightsGrouped = nights.groupBy{it.guard}
+    val minutes = nightsGrouped.map {
+        Pair(it.key, findMostSleptMinute(it.value))
+    }
+    val result = minutes.maxByOrNull { it.second.second }
+    result?.run {
+        println(result.first * result.second.first)
+    }
+}
