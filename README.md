@@ -22,6 +22,10 @@ help elves claiming the fabric.
 
 analyze the sleeping pattern of guards
 
+### Day 5 Alchemical Reduction
+
+remove polymers
+
 ---
 
 Environment
