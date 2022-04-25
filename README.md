@@ -26,6 +26,10 @@ analyze the sleeping pattern of guards
 
 remove polymers
 
+### Day 6 Chronal Coordinates
+
+find save areas on a grid
+
 ---
 
 Environment
