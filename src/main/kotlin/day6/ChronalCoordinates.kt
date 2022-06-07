@@ -5,7 +5,8 @@ import kotlin.math.abs
 
 fun main() {
     val input = File("data/day6/input.txt").readLines()
-    breakfast(input)
+    //breakfast(input)
+    lunch(input, 10_000)
 }
 
 data class Point(val x: Int, val y: Int)
@@ -80,4 +81,24 @@ fun breakfast(input: List<String>) {
     val sized = grouped.map { it.value.size }
     val result = sized.maxOf { it }
     println(result + 1) // 3909
+}
+
+fun lunch(input: List<String>, total: Int) {
+
+    // the points with coordinates
+    val points = input.map {
+        Point(it.substringBefore(",").toInt(), it.substringAfter(" ").toInt())
+    }
+
+    val xRange: IntRange = (points.minOf { it.x }..points.maxOf { it.x })
+    val yRange: IntRange = (points.minOf { it.y }..points.maxOf { it.y })
+
+    val result = xRange.asSequence().flatMap { x ->
+        yRange.asSequence().map { y ->
+            val p = Point(x, y)
+            points.map { it.distance(p) }.sum()
+        }
+    }.filter { it < total }.toList().count()
+
+    println(result)
 }
