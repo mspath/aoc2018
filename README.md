@@ -30,6 +30,10 @@ remove polymers
 
 find save areas on a grid
 
+### Day 7 Sum of its Parts
+
+coordinate threads of work
+
 ---
 
 Environment
@@ -39,4 +43,4 @@ Environment
 
 ---
 
-updated: 2022-03-15
+updated: 2022-06-09
