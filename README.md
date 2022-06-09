@@ -34,6 +34,10 @@ find save areas on a grid
 
 coordinate threads of work
 
+### Day 8  Memory Maneuver
+
+decode a navigation system's license file
+
 ---
 
 Environment

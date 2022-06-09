@@ -48,6 +48,7 @@ fun breakfast(input: List<String>) {
 
 data class Job(val name: Char, val worker: Int, val start: Int, val end: Int)
 
+// does not pass yet
 fun lunch(input: List<String>, workers: Int, cost: Int) {
 
     var rules = input.map {
