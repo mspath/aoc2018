@@ -38,6 +38,10 @@ coordinate threads of work
 
 decode a navigation system's license file
 
+### Day 9 Marble Mania
+
+play a long game of marbles
+
 ---
 
 Environment
