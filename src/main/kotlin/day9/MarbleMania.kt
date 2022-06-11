@@ -1,5 +1,9 @@
 package day9
 
+import java.util.*
+import kotlin.collections.ArrayDeque
+import kotlin.math.absoluteValue
+
 // 9 players; last marble is worth 25 points: high score is 32
 // 10 players; last marble is worth 1618 points: high score is 8317
 // 13 players; last marble is worth 7999 points: high score is 146373
@@ -12,7 +16,8 @@ fun main() {
 
     val players = 470
     val points = 72170
-    breakfast(players, points)
+    //breakfast(players, points)
+    lunch(players, points * 100)
 }
 
 fun MutableList<Int>.addMarble(marble: Int, current: Int, scoreBoard: MutableList<Int>): Int {
@@ -38,6 +43,39 @@ fun breakfast(players: Int, points: Int) {
     while (marble < points) {
         marble++
         current = marbles.addMarble(marble, current, scoreBoard)
+    }
+    println(scoreBoard.maxOf { it })
+}
+
+// see todd.ginsberg.com/post/advent-of-code/2018/day9/
+// since the marbles just shift within a small range this is a great data structure here
+fun <T> ArrayDeque<T>.shift(n: Int) =
+    when {
+        n < 0 -> repeat(n.absoluteValue) {
+            addLast(removeFirst())
+        }
+        else -> repeat(n) {
+            addFirst(removeLast())
+        }
+    }
+
+fun lunch(players: Int, points: Int) {
+    val scoreBoard = LongArray(players)
+    val marbles = ArrayDeque<Int>().also { it.add(0) }
+
+    (1..points).forEach { marble ->
+        when {
+            marble % 23 == 0 -> {
+                marbles.shift(-7)
+                val bounty = marbles.removeFirst().toLong()
+                scoreBoard[marble % players] += bounty + marble
+                marbles.shift(1)
+            }
+            else -> {
+                marbles.shift(1)
+                marbles.addFirst(marble)
+            }
+        }
     }
     println(scoreBoard.maxOf { it })
 }
