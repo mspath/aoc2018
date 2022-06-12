@@ -42,6 +42,10 @@ decode a navigation system's license file
 
 play a long game of marbles
 
+### Day 10 The Stars Align
+
+decode a message in the stars
+
 ---
 
 Environment
