@@ -46,6 +46,14 @@ play a long game of marbles
 
 decode a message in the stars
 
+### Day 11 Chronal Charge
+
+find the most powerful cell in a grid
+
+### Day 12 Subterranean Sustainability
+
+predict the state of subterrean plants
+
 ---
 
 Environment
