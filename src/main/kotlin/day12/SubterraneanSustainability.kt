@@ -4,7 +4,8 @@ import java.io.File
 
 fun main() {
     val input = File("data/day12/input.txt").readLines()
-    breakfast(input)
+    //breakfast(input)
+    lunch(input)
 }
 
 fun Set<Int>.toState(): String {
@@ -41,5 +42,26 @@ fun breakfast(input: List<String>) {
     println(next)
     println(next.toState())
     val result = next.sumOf { it }
+    println(result)
+}
+
+fun lunch(input: List<String>) {
+    val magicStable = 120
+    val initialState = input.first().substringAfter("initial state: ")
+    val pots = initialState.mapIndexedNotNull { index, c ->
+        if (c == '#') index else null
+    }.toSet()
+    val rulesGrowth = input.drop(2).filter { it.contains(" => #") }
+        .map { it.substringBefore(" => #") }
+        .toSet()
+
+    var next: Set<Int> = pots.map { it }.toSortedSet()
+    repeat(magicStable) {
+        next = next.nextGeneration(rulesGrowth)
+        println("${it}: ${next.sumOf { it }}: ${next.toState()}")
+    }
+    // ^ by watching the output here we know that after 120 iterations the form stays the same
+    // it just shifts, so we can calculate it 'manually':
+    val result = (50000000000L - magicStable) * 22 + next.sumOf { it }
     println(result)
 }
