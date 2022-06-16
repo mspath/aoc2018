@@ -52,7 +52,11 @@ find the most powerful cell in a grid
 
 ### Day 12 Subterranean Sustainability
 
-predict the state of subterrean plants
+predict the state of subterranean plants
+
+### Day 13 Mine Cart Madness
+
+predict crashes in a mine cart track
 
 ---
 
