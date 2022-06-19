@@ -56,7 +56,11 @@ predict the state of subterranean plants
 
 ### Day 13 Mine Cart Madness
 
-predict crashes in a mine cart track
+predict crashes in a mine cart track (incomplete)
+
+### Day 14 Chocolate Charts
+
+help discovering the best recipe
 
 ---
 
