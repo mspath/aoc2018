@@ -66,9 +66,9 @@ help discovering the best recipe
 
 Environment
 
-- Kotlin 1.6.10
-- Intellij 2021.3.2
+- Kotlin 1.7.10
+- Intellij 2021.3.3
 
 ---
 
-updated: 2022-06-09
+updated: 2022-08-21
