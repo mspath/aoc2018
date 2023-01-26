@@ -66,7 +66,7 @@ help discovering the best recipe
 
 Environment
 
-- Kotlin 1.7.21
+- Kotlin 1.8.0
 - Intellij 2022.2.4
 
 ---
@@ -75,5 +75,5 @@ Environment
 language: kotlin
 repo: aoc2018
 status: active
-updated: 2022-12-01
+updated: 2023-01-26
 ```
